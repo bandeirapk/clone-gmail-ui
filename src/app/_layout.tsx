@@ -7,7 +7,7 @@ import {
   useFonts,
   Roboto_400Regular,
   Roboto_500Medium,
-  Roboto_700Bold,
+  Roboto_700Bold
 } from "@expo-google-fonts/roboto"
 
 import { GestureHandlerRootView } from "react-native-gesture-handler"
@@ -18,7 +18,7 @@ export default function Layout() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_500Medium,
-    Roboto_700Bold,
+    Roboto_700Bold
   })
 
   if (!fontsLoaded) {

@@ -29,15 +29,15 @@ export function Email({ data }: EmailProps) {
             />
           )}
 
-          <Text className="text-lg font-subtitle text-gray-300 flex-1">
+          <Text className="text-lg font-subtitle text-gray-400 flex-1">
             {data.name}
           </Text>
 
-          <Text className="text-sm font-body text-gray-300">{data.date}</Text>
+          <Text className="text-sm font-body text-gray-400">{data.date}</Text>
         </View>
 
         <Text
-          className="text-base font-body text-gray-300"
+          className="text-base font-body text-gray-400"
           numberOfLines={1}
           lineBreakMode="tail"
         >
@@ -46,7 +46,7 @@ export function Email({ data }: EmailProps) {
 
         <View className="flex-row items-center gap-4">
           <Text
-            className="text-base font-body text-gray-300 flex-1"
+            className="text-base font-body text-gray-400 flex-1"
             numberOfLines={1}
             lineBreakMode="tail"
           >

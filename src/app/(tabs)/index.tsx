@@ -4,6 +4,7 @@ import { Input } from "@/components/Input"
 import { MenuButton } from "@/components/Menu-button"
 import { Avatar } from "@/components/Avatar"
 import { Email } from "@/components/Email"
+import { FloatButton } from "@/components/Float-button"
 
 import { EMAILS } from "@/utils/email"
 
@@ -22,11 +23,13 @@ export default function Home() {
         renderItem={({ item }) => <Email data={item} />}
         contentContainerClassName="gap-6"
         ListHeaderComponent={() => (
-          <Text className="text-gray-300 text-sm font-subtitle mt-6">
+          <Text className="text-gray-400 text-sm font-subtitle mt-6">
             Entrada
           </Text>
         )}
       />
+
+      <FloatButton icon="edit" />
     </View>
   )
 }

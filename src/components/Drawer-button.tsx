@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from "react-native"
+import { Pressable, PressableProps, Text, View } from "react-native"
 
 import { MaterialIcons } from "@expo/vector-icons"
 
@@ -6,23 +6,38 @@ import clsx from "clsx"
 
 import { colors } from "@/styles/colors"
 
-export function DrawerButton() {
-  const isDivider = false
-  const isFocused = false
+export type IconNameProps = keyof typeof MaterialIcons.glyphMap
 
+type DrawerButtonProps = PressableProps & {
+  title: string
+  isDivider?: boolean
+  isFocused?: boolean
+  iconName: IconNameProps
+  notifications?: number
+}
+
+export function DrawerButton({
+  title,
+  isDivider,
+  isFocused,
+  iconName,
+  notifications,
+  ...rest
+}: DrawerButtonProps) {
   return (
     <Pressable
       className={clsx("py-2 w-full", {
-        "border-b ml-10 border-gray-500": isDivider
+        "border-b border-gray-500": isDivider
       })}
+      {...rest}
     >
       <View
-        className={clsx("flex-row items-center gap-4 h-14 px-6 -ml-2", {
-          "-ml-14": isDivider
+        className={clsx("flex-row items-center gap-4 h-14 px-6 -ml-2 w-full", {
+          "-ml-1": isDivider
         })}
       >
         <MaterialIcons
-          name="email"
+          name={iconName}
           size={20}
           color={isFocused ? colors.orange[300] : colors.gray[400]}
         />
@@ -32,7 +47,15 @@ export function DrawerButton() {
             "text-orange-300": isFocused
           })}
         >
-          Todas as caixas de e-mails
+          {title}
+        </Text>
+
+        <Text
+          className={clsx("text-gray-400 text-sm font-body", {
+            "text-orange-300": isFocused
+          })}
+        >
+          {notifications}
         </Text>
       </View>
     </Pressable>
